@@ -1,0 +1,89 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "sap.ui.demo.PROJECT_ID",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "PROJECT_NAME",
+        "description": "PROJECT_NAME",
+        "applicationVersion": {
+            "version": "1.0.0"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "fullWidth": true
+    },
+
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "sap.ui.demo.PROJECT_ID.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.60",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+
+        "models": {
+
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.ui.demo.PROJECT_ID.i18n.i18n"
+                }
+            }
+        },
+
+        "routing": {
+
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "sap.ui.demo.PROJECT_ID.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true,
+                "bypassed": {
+                    "target": "notFound"
+                }
+            },
+
+            "routes": [{
+                "pattern": "",
+                "name": "home",
+                "target": "home"
+            }],
+            "targets": {
+
+                "home": {
+                    "viewId": "home",
+                    "viewName": "VIEW_NAME",
+                    "viewLevel": 1
+                },
+
+                "notFound": {
+                    "viewName": "NotFound",
+                    "transition": "show"
+                  }
+            }
+
+        },
+
+        "resources": {
+            "css": [{
+                "uri": "css/style.css"
+            }]
+        }
+    }
+}
